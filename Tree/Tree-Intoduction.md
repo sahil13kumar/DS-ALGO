@@ -13,5 +13,5 @@ Types of Binary Trees:
  - Based on the structure and number of parents and children nodes,
    a Binary Tree is classified into the following common types:
    
-   [link]{https://www.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree}
+   [link]{https://www.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree/}
    
