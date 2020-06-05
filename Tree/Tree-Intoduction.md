@@ -6,12 +6,10 @@ Binary Tree
    That is, all of its node can have either no child, 1 child or 2 child nodes.
 
 
-Properties of a Binary Tree:
-https://www.geeksforgeeks.org/binary-tree-set-2-properties/
+Properties of a Binary Tree: [link](https://www.geeksforgeeks.org/binary-tree-set-2-properties/)
+
 
 Types of Binary Trees: 
  - Based on the structure and number of parents and children nodes,
-   a Binary Tree is classified into the following common types:
-   
-   [link](https://www.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree/)
+   a Binary Tree is classified into the following common types: [link](https://www.geeksforgeeks.org/binary-tree-set-3-types-of-binary-tree/)
    
