@@ -1,5 +1,5 @@
 Basic Tree Terminologies:
- - Root,Edge,Siblings, Leaf Node, Height of Tree
+ - Root,Edge,Siblings, Leaf Node, Height of Tree Properties of a Binary Tree: [link](https://www.geeksforgeeks.org/binary-tree-set-1-introduction/)
 
 Binary Tree
  - A Tree is said to be a Binary Tree if all of its nodes have atmost 2 children. 
