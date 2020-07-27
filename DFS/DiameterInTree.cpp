@@ -15,11 +15,9 @@ void dfs(int node,int d){
 		maxNode = node;	
 	} 
 	
-	for(int child:ar[node]){	
-		if(vis[child]==0){
+	for(int child:ar[node])	
+		if(vis[child]==0)
 			dfs(child,d+1);
-		}
-	}
 }
 
 int main(){
@@ -33,7 +31,6 @@ int main(){
 	for(int i=1;i<=e;i++)
 		cin>>a>>b , ar[a].push_back(b) , ar[b].push_back(a);
 
-	
 	maxD = -1;
 	dfs(1,0);
 	
