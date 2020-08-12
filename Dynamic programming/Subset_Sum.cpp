@@ -23,7 +23,6 @@ bool isSubsetSum(int set[],int n,int sum){
 		}
 	}
 	    
-	// uncomment this code to print table 
 	/*
     for (int i = 0; i <= n; i++) 
     { 
