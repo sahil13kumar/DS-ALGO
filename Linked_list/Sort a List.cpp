@@ -23,7 +23,6 @@ void printList(Node* a){
 	}
 }
 
-
 Node* SortedMerge(Node* a, Node* b) 
 { 
     Node* result = NULL; 
@@ -47,44 +46,43 @@ Node* SortedMerge(Node* a, Node* b)
 }
 
 
-void frontBackSplit(Node* root,Node** a,Node** b){
-
+void FrontBackSplit(Node* root,Node** a,Node** b){
 
 	Node* slow = root;
-	Node* fast = slow->next;
+	Node* fast = root->next;
 	
 	while(fast!=NULL){
 		fast = fast->next;
-		if(fast!=NULL && slow!=NULL){
+		if(fast!=NULL){
 			fast = fast->next;
 			slow = slow->next;
 		}
 	}
 	
-	
 	*a = root;
-	*b = root->next;
-	slow = slow->next;
+	*b = slow->next;
+	slow->next = NULL; 
 }
 
+void MergeSort(Node** headRef) 
+{ 
+    Node* head = *headRef; 
+    Node* a; 
+    Node* b; 
+  
+    if ((head == NULL) || (head->next == NULL)) { 
+        return; 
+    } 
+  
+    FrontBackSplit(head, &a, &b); 
+  
+    MergeSort(&a); 
+    MergeSort(&b); 
+  
+    *headRef = SortedMerge(a, b); 
+} 
 
 
-void MergeSort(Node* root){
-	
-	Node* head = root;
-	Node* a = NULL;
-	Node* b = NULL;
-	
-	if(head!=NULL || head->data!=NULL)
-		return;
-		
-	frontBackSplit(root,&a,&b);
-	
-	MergeSort(a);
-	MergeSort(b);
-	
-	root = SortedMerge(a,b);
-}
 
 
 int main() 
@@ -100,10 +98,12 @@ int main()
     push(&a, 2); 
   	printList(a); 
 	cout<<endl;
-    MergeSort(a); 
+    MergeSort(&a); 
   
     cout << "Sorted Linked List is: \n"; 
     printList(a); 
   
     return 0; 
 } 
+
+
