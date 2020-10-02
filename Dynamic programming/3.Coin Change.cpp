@@ -43,43 +43,68 @@ int main()
 
 
 
-#define MAX 9999
-int count(int coins[],int m, int amount){
-	
-	if(amount==0) return 0;
-	
-	int dp[m+1][amount+1];
-	int i,j;
-	for(i=0;i<=m;i++){
-		for(j=0;j<=amount;j++){
-			if(i==0 || j==0)
-				dp[i][j] = MAX;
-		}
-	}
-	
-	for(i=1;i<=m;i++){
-		for(j=1;j<=amount;j++){
-			if(j<coins[i-1])
-				dp[i][j] = dp[i-1][j];
-			else if(j == coins[i-1])
-				dp[i][j] = 1;
-			else
-				dp[i][j] = min(dp[i-1][j-coins[i-1]]+1,dp[i-1][j]);
-		}
-	}
-	
-	if(dp[m][amount]==MAX)
-		return -1;
-		
-	return dp[m][amount];
-}
 
-int main() 
-{ 
-    int i, j; 
-    int arr[] = {1, 2, 3}; 
-    int m = sizeof(arr)/sizeof(arr[0]); 
-    printf("%d ", count(arr, m, 4)); 
-    getchar(); 
-    return 0; 
-} 
+// IN 1D array
+// Coin Change Permutation
+
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        
+        
+    int i,j;  
+        
+    int dp[amount+1],n = coins.size(); 
+  
+    dp[0] = 0; 
+  
+    for (i=1; i<=amount; i++) 
+        dp[i] = INT_MAX; 
+        
+	
+	for(i=1;i<=amount;i++){
+		for(j=0;j<n;j++){
+			
+			if(coins[j]<=i){
+				int sub_res = dp[i-coins[j]];
+				if(sub_res!=INT_MAX && sub_res+1< dp[i])
+					dp[i] = sub_res+1;
+			}
+		}
+	}    
+        
+        return (dp[amount]!=INT_MAX? dp[amount] : -1);
+    }
+};
+
+
+
+
+
+
+
+
+//Coin Change Combination
+
+
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        
+    int n = coins.size();
+        
+    int dp[amount+1];
+	memset(dp, 0, sizeof(dp)); 
+	dp[0] = 1;
+	int i,j;
+	
+	for(i=0;i<n;i++){
+		for(j=coins[i];j<=amount;j++){
+			dp[j] += dp[j-coins[i]];
+		}
+	}
+	
+	return dp[amount];
+        
+    }
+};
