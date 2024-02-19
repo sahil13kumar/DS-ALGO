@@ -22,7 +22,7 @@ void printVerticalOrder(Node* root){
 	getVerticalOrder(root,hd,mp);
 	
 	for(auto p1:mp){
-		sort(p1.second.begin(),p1.second.end());
+		//sort(p1.second.begin(),p1.second.end());
 		vector<int> v = p1.second;
 		for(auto p2:v){
 			cout<<p2<<" ";
