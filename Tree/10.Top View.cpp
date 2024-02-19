@@ -24,6 +24,7 @@ void fillMap(Node* root, int level,int hd,map<int, pair<int,int>>& mp){
 	if(!mp.count(hd)){
 		mp[hd] = {root->data,level};
 	}
+	//Check if this value of hd is already present and its vertical distance is greater than level, then set map[hd] equal to {root->data, level}
 	else if(mp[hd].second > level){
 		mp[hd] = {root->data,level};
 	}
