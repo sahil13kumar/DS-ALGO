@@ -37,7 +37,7 @@ void fillMap(Node* root, int level,int hd,map<int, pair<int,int>>& mp){
 }
 
 
-void topView(struct Node* root)
+void bottomView(struct Node* root)
 {
 	map<int, pair<int,int> > mp;
 	
@@ -49,7 +49,7 @@ void topView(struct Node* root)
 
 
 /*
-void topView(struct Node* root){
+void bottomView(struct Node* root){
 	
 	if(root==NULL)	return;
 	
@@ -94,7 +94,7 @@ int main()
   root -> left -> right -> right = newNode(14);
 	cout << "Following are nodes in top view of Binary "
 			"Tree\n";
-	topView(root);
+	bottomView(root);
 	return 0;
 }
 
